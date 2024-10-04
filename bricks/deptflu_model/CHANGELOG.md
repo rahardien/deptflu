@@ -1,3 +1,4 @@
-# 0.1.0+1
+# 0.1.1
 
-- TODO: Describe initial release.
+- Generate Entity class that extends to Equatable
+- Generate Model class that extends to Entity, with it's toJson() and fromJson() method
