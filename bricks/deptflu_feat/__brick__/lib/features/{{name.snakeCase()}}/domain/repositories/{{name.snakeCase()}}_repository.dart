@@ -1,0 +1,1 @@
+interface class {{name.pascalCase()}}Repository {}
