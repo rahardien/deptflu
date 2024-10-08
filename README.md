@@ -6,7 +6,7 @@ List of bricks to build Boilerplate code for Deptech's Flutter projects
 
 | Brick name           | Version               | Description                                         |
 |----------------------|-----------------------|-----------------------------------------------------|
-| [deptflu_feat](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_feat)         | 0.1.1                 | Generate feature's boilerplate code                 |
+| [deptflu_feat](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_feat)         | 0.2.1                 | Generate feature's boilerplate code                 |
 | [deptflu_model](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_model)        | 0.1.1                 | Generate model and entity boilerplate code                 |
 
 ## Getting Started 🚀
