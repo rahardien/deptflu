@@ -1,14 +1,18 @@
-import 'package:equatable/equatable.dart';
 
-class ProfileEntity extends Equatable {
+
+
+
+class ProfileEntity {
   final String? id;
 
   const ProfileEntity({
     this.id,
   });
 
-  @override
-  List<Object?> get props => [
-        id,
-      ];
+  ProfileEntity copyWith({
+    String? id,
+  }) =>
+      ProfileEntity(
+        id: id ?? this.id,
+      );
 }

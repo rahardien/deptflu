@@ -15,3 +15,7 @@ bricks:
     git:
       url: https://github.com/rahardien/deptflu.git
       path: bricks/deptflu_model
+  deptflu_bloc:
+    git:
+      url: https://github.com/rahardien/deptflu.git
+      path: bricks/deptflu_bloc

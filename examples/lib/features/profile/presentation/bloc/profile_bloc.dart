@@ -8,5 +8,5 @@ part 'profile_state.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final GetProfileUc getProfileUc;
 
-  ProfileBloc({required this.getProfileUc}): super(ProfileStateInit());
+  ProfileBloc({required this.getProfileUc}) : super(ProfileStateInit());
 }

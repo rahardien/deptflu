@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'data/datasources/profile_remote_data_source.dart';
+import 'data/datasources/profile_local_data_source.dart';
 import 'data/repositories/profile_repository_impl.dart';
 import 'domain/repositories/profile_repository.dart';
 import 'domain/usecases/get_profile_uc.dart';
@@ -11,10 +12,16 @@ class ProfileModule {
     GetIt.I.registerLazySingleton<ProfileRemoteDataSource>(
       () => ProfileRemoteDataSourceImpl(),
     );
+    GetIt.I.registerLazySingleton<ProfileLocalDataSource>(
+      () => ProfileLocalDataSourceImpl(),
+    );
 
     // Repositories
     GetIt.I.registerLazySingleton<ProfileRepository>(
-      () => ProfileRepositoryImpl(),
+      () => ProfileRepositoryImpl(
+        remoteDataSource: GetIt.I.get(),
+        localDataSource: GetIt.I.get(),
+      ),
     );
 
     // Usecases
