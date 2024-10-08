@@ -1,4 +1,13 @@
 {{#isUsingBloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/isUsingBloc}}
+{{#isUsingCubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/isUsingCubit}}
+
+{{#isUsingFreezed}}
+@freezed
+class {{name.pascalCase()}}Event with _${{name.pascalCase()}}Event {
+  factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}sEvent() = _Get{{name.pascalCase()}}sEvent;
+  factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}ByIdEvent(String id) = _Get{{name.pascalCase()}}ByIdEvent;
+}
+{{/isUsingFreezed}}
 
 {{#isUsingEquatable}}
 abstract class {{name.pascalCase()}}Event extends Equatable {

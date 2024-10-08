@@ -1,3 +1,4 @@
-# 0.1.1
+# 0.2.1
 
-- Generating Bloc, Event, and State based on user's input
+- Generating Cubit, Event, and State based on user's input
+- Adding `freezed` as immutable option

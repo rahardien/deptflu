@@ -1,4 +1,19 @@
 {{#isUsingBloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/isUsingBloc}}
+{{#isUsingCubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/isUsingCubit}}
+
+{{#isUsingFreezed}}
+@freezed
+class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
+  factory {{name.pascalCase()}}State.init() = _{{name.pascalCase()}}StateInit;
+  factory {{name.pascalCase()}}State.loading() = _{{name.pascalCase()}}StateLoading;
+  factory {{name.pascalCase()}}State.success(dynamic data) = _{{name.pascalCase()}}StateSuccess;
+  factory {{name.pascalCase()}}State.error({
+    required AppFailure failure,
+    int? code,
+    String? message,
+  }) = _{{name.pascalCase()}}StateError;
+}
+{{/isUsingFreezed}}
 
 {{#isUsingEquatable}}
 abstract class {{name.pascalCase()}}State extends Equatable {
