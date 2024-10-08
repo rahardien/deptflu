@@ -7,7 +7,7 @@ List of bricks to build Boilerplate code for Deptech's Flutter projects
 | Brick name           | Version               | Description                                         |
 |----------------------|-----------------------|-----------------------------------------------------|
 | [deptflu_feat](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_feat)         | 0.2.1                 | Generate feature's boilerplate code                 |
-| [deptflu_model](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_model)        | 0.1.1                 | Generate model and entity boilerplate code                 |
+| [deptflu_model](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_model)        | 0.2.1                 | Generate model and entity boilerplate code                 |
 | [deptflu_bloc](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_bloc)         | 0.1.1                 | Generate BLoC/Cubit boilerplate code (event & state included)                  |
 
 ## Getting Started 🚀
@@ -50,6 +50,10 @@ bricks:
     git:
       url: https://github.com/rahardien/deptflu.git
       path: bricks/deptflu_model
+  deptflu_bloc:
+    git:
+      url: https://github.com/rahardien/deptflu.git
+      path: bricks/deptflu_bloc
 ```
 
 after that run `mason get` to download bricks from the repository.

@@ -1,4 +1,3 @@
-# 0.1.1
+# 0.2.1
 
-- Generate Entity class that extends to Equatable
-- Generate Model class that extends to Entity, with it's toJson() and fromJson() method
+- Adding option to create immutable Entity/Model (equatable and freezed)

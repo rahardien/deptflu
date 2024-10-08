@@ -1,5 +1,6 @@
 import '../../domain/entities/{{model.snakeCase()}}_entity.dart';
 
+{{#isUsingEquatable}}
 class {{model.pascalCase()}}Model extends {{model.pascalCase()}}Entity {
   const {{model.pascalCase()}}Model({
     super.id,
@@ -22,3 +23,32 @@ class {{model.pascalCase()}}Model extends {{model.pascalCase()}}Entity {
         'updated_at': updatedAt,
       };
 }
+{{/isUsingEquatable}}
+
+{{#isUsingFreezed}}
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part '{{model.snakeCase()}}_model.freezed.dart';
+part '{{model.snakeCase()}}_model.g.dart';
+
+@freezed
+class {{model.pascalCase()}}Model with _${{model.pascalCase()}}Model {
+  const {{model.pascalCase()}}Model._();
+
+  const factory {{model.pascalCase()}}Model({
+    String? id,
+    String? name,
+    DateTime? createdAt, 
+    DateTime? updatedAt,
+  }) = _{{model.pascalCase()}}Model;
+
+  {{model.pascalCase()}}Entity toEntity() => {{model.pascalCase()}}Entity(
+    id: id,
+    name: name,
+    createdAt: createdAt,
+    updatedAt: updatedAt,
+  );
+
+  factory {{model.pascalCase()}}Model.fromJson(Map<String, dynamic> json) => _${{model.pascalCase()}}ModelFromJson(json);
+}
+{{/isUsingFreezed}}
