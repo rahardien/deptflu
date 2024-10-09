@@ -1,12 +1,12 @@
 enum BaseStatus {
-  initial("INITIAL"),
-  loading("LOADING"),
-  success("SUCCESS"),
-  error("ERROR"),
-  empty("EMPTY"),
-  loadMore("LOAD MORE");
+  init("Initial"),
+  loading("Loading"),
+  success("Success"),
+  error("Error"),
+  empty("Empty"),
+  loadMore("Load More");
 
-  final String name;
+  final String title;
 
-  const BaseStatus(this.name);
+  const BaseStatus(this.title);
 }

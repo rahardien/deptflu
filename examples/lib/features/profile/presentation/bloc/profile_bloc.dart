@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import '../../../../cores/base_status.dart';
+import '../../../../cores/errors/app_failure.dart';
 import '../../domain/usecases/get_profile_uc.dart';
 
 part 'profile_event.dart';
