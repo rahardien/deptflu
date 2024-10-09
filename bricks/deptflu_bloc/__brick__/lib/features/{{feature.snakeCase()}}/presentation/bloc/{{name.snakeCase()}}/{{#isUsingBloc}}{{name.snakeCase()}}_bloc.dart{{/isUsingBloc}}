@@ -2,12 +2,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../cores/errors/app_failure.dart';
 {{#isUsingEquatable}}import 'package:equatable/equatable.dart';{{/isUsingEquatable}}
 {{#isUsingFreezed}}import 'package:freezed_annotation/freezed_annotation.dart';{{/isUsingFreezed}}
+{{#pagination}}import '../../../../../cores/{{#pagination}}base_status.dart{{/pagination}}';{{/pagination}}
 
 part '{{name.snakeCase()}}_event.dart';
 part '{{name.snakeCase()}}_state.dart';
 {{#isUsingFreezed}}part '{{name.snakeCase()}}_bloc.freezed.dart';{{/isUsingFreezed}}
 
 class {{name.pascalCase()}}Bloc extends Bloc<{{name.pascalCase()}}Event, {{name.pascalCase()}}State> {
-  {{#isUsingEquatable}}{{name.pascalCase()}}Bloc(): super({{name.pascalCase()}}StateInit());{{/isUsingEquatable}}
-  {{#isUsingFreezed}}{{name.pascalCase()}}Bloc(): super({{name.pascalCase()}}State.init());{{/isUsingFreezed}}
+  {{#isUsingEquatable}}{{name.pascalCase()}}Bloc(): super({{^pagination}}{{name.pascalCase()}}StateInit(){{/pagination}}{{#pagination}}{{name.pascalCase()}}State(){{/pagination}});{{/isUsingEquatable}}
+  {{#isUsingFreezed}}{{name.pascalCase()}}Bloc(): super({{^pagination}}{{name.pascalCase()}}State.init(){{/pagination}}{{#pagination}}{{name.pascalCase()}}State(){{/pagination}});{{/isUsingFreezed}}
 }

@@ -2,20 +2,38 @@
 {{#isUsingCubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/isUsingCubit}}
 
 {{#isUsingFreezed}}
+{{^pagination}}
 @freezed
 class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
   factory {{name.pascalCase()}}State.init() = _{{name.pascalCase()}}StateInit;
   factory {{name.pascalCase()}}State.loading() = _{{name.pascalCase()}}StateLoading;
-  factory {{name.pascalCase()}}State.success(dynamic data) = _{{name.pascalCase()}}StateSuccess;
+  factory {{name.pascalCase()}}State.success(dynamic data) = _{{name.pascalCase()}}StateSuccess; // Change the data type as you require
   factory {{name.pascalCase()}}State.error({
     required AppFailure failure,
     int? code,
     String? message,
   }) = _{{name.pascalCase()}}StateError;
 }
+{{/pagination}}
+{{#pagination}}
+@freezed
+class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
+  const factory {{name.pascalCase()}}State({
+    @Default(BaseStatus.init) BaseStatus status,
+    @Default(1) int page,
+    @Default(10) int limit,
+    @Default(false) bool isLoadMore,
+    @Default([]) List<dynamic> data, // Change the data type as you require
+    @Default(null) int? statusCode,
+    @Default("") String errorMessage,
+    @Default(null) AppFailure? failure,
+  }) = _{{name.pascalCase()}}State;
+}
+{{/pagination}}
 {{/isUsingFreezed}}
 
 {{#isUsingEquatable}}
+{{^pagination}}
 abstract class {{name.pascalCase()}}State extends Equatable {
   const {{name.pascalCase()}}State();
 
@@ -48,4 +66,63 @@ class {{name.pascalCase()}}StateError extends {{name.pascalCase()}}State {
     [failure, code, message,],
   ];
 }
+{{/pagination}}
+{{#pagination}}
+class {{name.pascalCase()}}State extends Equatable {
+  final BaseStatus status;
+  final int page;
+  final int limit;
+  final bool isLoadMore;
+  final List<dynamic> data;
+  final int? statusCode;
+  final String? message;
+  final AppFailure? failure;
+
+  const {{name.pascalCase()}}State({
+    this.status = BaseStatus.init,
+    this.page = 1,
+    this.limit = 10,
+    this.isLoadMore = false,
+    this.data = const [],
+    this.statusCode,
+    this.message,
+    this.failure,
+  });
+
+  @override
+  List<Object> get props => [
+        status,
+        page,
+        limit,
+        isLoadMore,
+        data,
+        [
+          statusCode,
+          message,
+          failure,
+        ],
+      ];
+
+  {{name.pascalCase()}}State copyWith({
+    BaseStatus? status,
+    int? page,
+    int? limit,
+    bool? isLoadMore,
+    List<dynamic>? data,
+    int? statusCode,
+    String? message,
+    AppFailure? failure,
+  }) =>
+      {{name.pascalCase()}}State(
+        status: status ?? this.status,
+        page: page ?? this.page,
+        limit: limit ?? this.limit,
+        isLoadMore: isLoadMore ?? this.isLoadMore,
+        data: data ?? this.data,
+        statusCode: statusCode ?? this.statusCode,
+        message: message ?? this.message,
+        failure: failure ?? this.failure,
+      );
+}
+{{/pagination}}
 {{/isUsingEquatable}}

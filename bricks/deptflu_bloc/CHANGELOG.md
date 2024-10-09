@@ -1,4 +1,3 @@
-# 0.2.1
+# 0.3.1
 
-- Generating Cubit, Event, and State based on user's input
-- Adding `freezed` as immutable option
+- Adding functionality to handle pagination in Bloc/Cubit class
