@@ -8,7 +8,7 @@ description: Brick to generate BLoC/Cubit boilerplate (event & state included) f
 # The following defines the version and build number for your brick.
 # A version number is three numbers separated by dots, like 1.2.34
 # followed by an optional build number (separated by a +).
-version: 0.3.1
+version: 0.4.1
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
@@ -57,3 +57,11 @@ vars:
     description: Add pagination handle in BLoC
     default: false
     prompt: Integrate pagination
+  validation:
+    type: enum
+    description: Validation Cubit to validate user's input, usually for Form
+    prompt: Choose user input validation package
+    default: none
+    values:
+      - none
+      - formz

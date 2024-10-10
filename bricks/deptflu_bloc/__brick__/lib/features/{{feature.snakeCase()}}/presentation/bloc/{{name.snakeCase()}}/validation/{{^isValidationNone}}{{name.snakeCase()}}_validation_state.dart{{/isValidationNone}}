@@ -1,0 +1,31 @@
+part of '{{name.snakeCase()}}_validation_cubit.dart';
+
+class {{name.pascalCase()}}ValidationState extends Equatable {
+  final StringInput name; // Change as you need 
+  final StringInput address;  // Change as you need
+  final bool isFormValid;
+
+  const {{name.pascalCase()}}ValidationState({
+    this.name = const StringInput.pure(),
+    this.address = const StringInput.pure(),
+    this.isFormValid = false,
+  });
+
+  @override
+  List<Object> get props => [
+    isFormValid,
+    name, 
+    address,
+  ];
+
+  {{name.pascalCase()}}ValidationState copyWith({
+    bool? isFormValid,
+    StringInput? name,
+    StringInput? address,
+  }) => 
+  {{name.pascalCase()}}ValidationState(
+    isFormValid: isFormValid ?? this.isFormValid,
+    name: name ?? this.name,
+    address: address ?? this.address,
+  );
+}
