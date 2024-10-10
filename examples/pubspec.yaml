@@ -41,6 +41,7 @@ dependencies:
   freezed_annotation: ^2.4.4
   dartz:
   pull_to_refresh:
+  formz: ^0.7.0
 
 dev_dependencies:
   flutter_test:

@@ -1,38 +1,20 @@
-part of 'account_bloc.dart';
 
-abstract class AccountState extends Equatable {
-  const AccountState();
+part of 'account_cubit.dart';
 
-  @override
-  List<Object> get props => [];
+
+
+@freezed
+class AccountState with _$AccountState {
+  factory AccountState.init() = _AccountStateInit;
+  factory AccountState.loading() = _AccountStateLoading;
+  factory AccountState.success(dynamic data) = _AccountStateSuccess; // Change the data type as you require
+  factory AccountState.error({
+    required AppFailure failure,
+    int? code,
+    String? message,
+  }) = _AccountStateError;
 }
 
-class AccountStateInit extends AccountState {}
 
-class AccountStateLoading extends AccountState {}
 
-class AccountStateSuccess extends AccountState {
-  final dynamic data;
 
-  const AccountStateSuccess(this.data);
-
-  @override
-  List<Object> get props => [data];
-}
-
-class AccountStateError extends AccountState {
-  final AppFailure failure;
-  final int? code;
-  final String? message;
-
-  const AccountStateError({required this.failure, this.code, this.message});
-
-  @override
-  List<Object> get props => [
-        [
-          failure,
-          code,
-          message,
-        ],
-      ];
-}
