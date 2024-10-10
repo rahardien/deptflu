@@ -16,3 +16,7 @@
 ## 0.4.1
 
 - Adding option to create validation Cubit and State class
+
+## 0.4.2
+
+- Adding option to create Validation State class with freezed

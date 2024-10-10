@@ -1,5 +1,6 @@
 part of '{{name.snakeCase()}}_validation_cubit.dart';
 
+{{#isUsingEquatable}}
 class {{name.pascalCase()}}ValidationState extends Equatable {
   final StringInput name; // Change as you need 
   final StringInput address;  // Change as you need
@@ -29,3 +30,15 @@ class {{name.pascalCase()}}ValidationState extends Equatable {
     address: address ?? this.address,
   );
 }
+{{/isUsingEquatable}}
+
+{{#isUsingFreezed}}
+@freezed
+class {{name.pascalCase()}}ValidationState with _${{name.pascalCase()}}ValidationState {
+  const factory {{name.pascalCase()}}ValidationState({
+    @Default(StringInput.pure()) StringInput name,    // Change as you need
+    @Default(StringInput.pure()) StringInput address, // Change as you need
+    @Default(false) bool isFormValid,
+  }) = _{{name.pascalCase()}}ValidationState;
+}
+{{/isUsingFreezed}}
