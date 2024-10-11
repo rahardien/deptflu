@@ -1,0 +1,67 @@
+name: deptflu_core
+description: Core Flutter template with necessary dependencies and config for Deptech Flutter projects
+
+# The following defines the brick repository url.
+# Uncomment and update the following line before publishing the brick.
+# repository: https://github.com/my_org/my_repo
+
+# The following defines the version and build number for your brick.
+# A version number is three numbers separated by dots, like 1.2.34
+# followed by an optional build number (separated by a +).
+version: 1.0.0
+
+# The following defines the environment for the current brick.
+# It includes the version of mason that the brick requires.
+environment:
+  mason: ">=0.1.0-dev.57 <0.1.0"
+
+# Variables specify dynamic values that your brick depends on.
+# Zero or more variables can be specified for a given brick.
+# Each variable has:
+#  * a type (string, number, boolean, enum, array, or list)
+#  * an optional short description
+#  * an optional default value
+#  * an optional list of default values (array only)
+#  * an optional prompt phrase used when asking for the variable
+#  * a list of values (enums only)
+#  * an optional separator (list only)
+vars:
+  name:
+    type: string
+    description: Project name
+    default: CoolApp
+    prompt: What is your project name?
+  description:
+    type: string
+    description: Project description
+    default: Cool App with Flutter
+    prompt: What is your project description?
+  org:
+    type: string
+    description: Project organization, used as application id
+    default: com.deptechdigital
+    prompt: What is your project organization?
+  state_management:
+    type: enum
+    description: State management to manage app state
+    default: bloc
+    prompt: Choose your preferrable state management
+    values:
+      - bloc
+      - cubit
+  immutable:
+    type: enum
+    description: Immutable package to ensure object Immutability
+    default: equatable
+    prompt: Choose your preferrable immutable package
+    values:
+      - equatable
+      - freezed
+  routing:
+    type: enum
+    description: Routing package to handle navigation
+    default: default
+    prompt: Choose your preferrable routing package
+    values:
+      - default
+      - go_router
