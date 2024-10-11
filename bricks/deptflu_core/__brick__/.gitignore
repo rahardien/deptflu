@@ -44,4 +44,4 @@ app.*.map.json
 
 # Generated codes
 **/*.g.dart
-**'/*.freezed.dart
+**/*.freezed.dart

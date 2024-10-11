@@ -46,7 +46,6 @@ dependencies:
   dio: ^5.7.0 # Supplement for HTTP call
   retrofit: ^4.4.1 # HTTP call
   pull_to_refresh: ^2.0.0 # Pull to refresh and pagination
-  flutter_launcher_icons: ^0.14.1 # Launcher icons
   flutter_svg: ^2.0.10+1 # Load SVG file
   json_annotation: ^4.9.0 # Annotation to turn JSON into data object
   shared_preferences: ^2.3.2 # Local storage to storing local config data
@@ -71,18 +70,19 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
-  build_runner: 
-  flutter_gen_runner:
-  {{#isUsingFreezed}}freezed: ^2.5.7{{/isUsingFreezed}}
-  json_serializable: ^6.8.0
+  flutter_launcher_icons: ^0.14.1 # Launcher icons
+  build_runner: any # Generate code
+  flutter_gen_runner: any # Generate assets
+  {{#isUsingFreezed}}freezed: ^2.5.7{{/isUsingFreezed}}{{#isUsingFreezed}} # Generate code for freezed immutability {{/isUsingFreezed}}
+  json_serializable: ^6.8.0 # Generate code to serialize JSON
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # Launcher icons
 flutter_icons:
-  android: true
-  image_path_android: "assets/images/{{name.snakeCase()}}_logo.png"
+  android: "launcher_icon"
+  ios: true
   image_path: "assets/images/{{name.snakeCase()}}_logo.png"
 
 # The following section is specific to Flutter packages.

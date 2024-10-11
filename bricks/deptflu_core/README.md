@@ -25,10 +25,22 @@ bricks:
   # Uncomment the following line to import the "hello" brick from BrickHub.
   # hello: 0.1.0+1
   # Bricks can also be imported via remote git url.
-  deptflu_feat:
+  deptflu_core:
     git:
       url: https://github.com/rahardien/deptflu.git
       path: bricks/deptflu_core
+  deptflu_feat:
+    git:
+      url: https://github.com/rahardien/deptflu.git
+      path: bricks/deptflu_feat
+  deptflu_model:
+    git:
+      url: https://github.com/rahardien/deptflu.git
+      path: bricks/deptflu_model
+  deptflu_bloc:
+    git:
+      url: https://github.com/rahardien/deptflu.git
+      path: bricks/deptflu_bloc
 ```
 
 after that run `mason get` to download bricks from the repository.
