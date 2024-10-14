@@ -1,4 +1,6 @@
-import 'package:{{name.snakeCase()}}/core/injection.dart';
+import 'package:{{name.snakeCase()}}/cores/injection.dart';
+import 'package:{{name.snakeCase()}}/routes/router_interfaces.dart';
+{{#isRoutingGoRouter}}import 'package:{{name.snakeCase()}}/routes/go_router/go_router_router.dart';{{/isRoutingGoRouter}}
 
 /// Class to initialize all config by calling [Initializer.init()]
 /// Feel free to add another config initialization method
@@ -11,6 +13,8 @@ abstract class Initializer {
     await initLocalDatabase();
     await initPushNotification();
   }
+
+  {{#isRoutingGoRouter}}static RouterInterface get router => GorouterRouter.instance();{{/isRoutingGoRouter}}
 
   static Future<void> initLocalDatabase() async {}
 

@@ -84,6 +84,8 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/{{name.snakeCase()}}_logo.png"
+  adaptive_icon_foreground: "assets/images/{{name.snakeCase()}}_logo.png"
+  adaptive_icon_background: "assets/images/{{name.snakeCase()}}_logo_background.png"
 
 # The following section is specific to Flutter packages.
 flutter:

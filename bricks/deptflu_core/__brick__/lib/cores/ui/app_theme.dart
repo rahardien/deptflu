@@ -1,4 +1,4 @@
-import 'package:{{name.snakeCase()}}/core/ui/app_color.dart';
+import 'package:{{name.snakeCase()}}/cores/ui/app_color.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {

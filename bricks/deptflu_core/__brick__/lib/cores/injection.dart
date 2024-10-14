@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:{{name.snakeCase()}}/core/services/secure_storage_service.dart';
-import 'package:{{name.snakeCase()}}/core/services/shared_pref_service.dart';
+import 'package:{{name.snakeCase()}}/cores/services/secure_storage_service.dart';
+import 'package:{{name.snakeCase()}}/cores/services/shared_pref_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 

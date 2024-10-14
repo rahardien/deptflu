@@ -1,0 +1,27 @@
+import 'package:flutter/widgets.dart';
+import 'package:{{name.snakeCase()}}/cores/routes/route_interfaces.dart';
+
+class DefaultNavigation implements NavigationInterface {
+  @override
+  void pop<T extends Object?>(BuildContext context, [T? result]) {
+    if (Navigator.canPop(context)) Navigator.pop(context, result);
+  }
+
+  @override
+  Future<T?> push<T extends Object?>({
+    required BuildContext context,
+    required String path,
+    Object? param,
+  }) {
+    return Navigator.pushNamed(context, path, arguments: param);
+  }
+
+  @override
+  Future<T?> pushReplacement<T extends Object?>({
+    required BuildContext context,
+    required String path,
+    Object? param,
+  }) {
+    return Navigator.pushReplacementNamed(context, path, arguments: param);
+  }
+}

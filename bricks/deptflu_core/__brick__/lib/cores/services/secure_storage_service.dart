@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:{{name.snakeCase()}}/core/constant/local_storage_fields.dart';
+import 'package:{{name.snakeCase()}}/cores/constant/local_storage_fields.dart';
 
 class SecureStorageService {
   static late FlutterSecureStorage _storage;

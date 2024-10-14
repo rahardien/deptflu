@@ -16,7 +16,7 @@ void run(HookContext context) {
   final isValidationFormz = validation == 'formz';
 
   final isRoutingNone = routing == 'none';
-  final isRoutingGoRoute = routing == 'go_router';
+  final isRoutingGoRouter = routing == 'go_router';
 
   context.vars['isUsingEquatable'] = isUsingEquatable;
   context.vars['isUsingFreezed'] = isUsingFreezed;
@@ -29,5 +29,5 @@ void run(HookContext context) {
   context.vars['isValidationFormz'] = isValidationFormz;
 
   context.vars['isRoutingNone'] = isRoutingNone;
-  context.vars['isRoutingGoRoute'] = isRoutingGoRoute;
+  context.vars['isRoutingGoRouter'] = isRoutingGoRouter;
 }

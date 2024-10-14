@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:{{name.snakeCase()}}/app.dart';
-import 'package:{{name.snakeCase()}}/core/initializer.dart';
+import 'package:{{name.snakeCase()}}/cores/initializer.dart';
 
 void main() async  {
   WidgetsFlutterBinding.ensureInitialized();

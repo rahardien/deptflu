@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:{{name.snakeCase()}}/core/ui/app_theme.dart';
+import 'package:{{name.snakeCase()}}/cores/initializer.dart';
+import 'package:{{name.snakeCase()}}/cores/ui/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+{{#isRoutingGoRouter}}import 'package:{{name.snakeCase()}}/cores/routes/go_router/go_router_router.dart';{{/isRoutingGoRouter}}
+{{#isRoutingGoRouter}}import 'package:{{name.snakeCase()}}/cores/routes/go_router/go_router_router.dart';{{/isRoutingGoRouter}}
+
+{{#isRoutingGoRouter}}final router = Initializer.router;{{/isRoutingGoRouter}}
 
 class {{name.pascalCase()}}App extends StatefulWidget {
   const {{name.pascalCase()}}App({super.key});
@@ -26,7 +31,8 @@ class _{{name.pascalCase()}}AppState extends State<{{name.pascalCase()}}App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    {{^isRoutingNone}}return MaterialApp.router({{/isRoutingNone}}
+    {{#isRoutingNone}}return MaterialApp({{/isRoutingNone}}
       title: "{{name.titleCase()}}",
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
@@ -41,32 +47,7 @@ class _{{name.pascalCase()}}AppState extends State<{{name.pascalCase()}}App> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: HomePage(title: AppLocalizations.of(context)?.name ?? "{{name.titleCase()}}",),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              AppLocalizations.of(context)?.language ?? "Undefined Language",
-            ),
-          ],
-        ),
-      ),
+      {{#isRoutingGoRouter}}routerConfig: GorouterRouter.instance().routerConfig,{{/isRoutingGoRouter}}
     );
   }
 }

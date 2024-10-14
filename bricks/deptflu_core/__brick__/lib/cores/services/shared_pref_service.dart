@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:{{name.snakeCase()}}/core/injection.dart';
+import 'package:{{name.snakeCase()}}/cores/injection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefService {
