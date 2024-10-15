@@ -1,6 +1,6 @@
 import 'package:{{name.snakeCase()}}/cores/injection.dart';
-import 'package:{{name.snakeCase()}}/routes/router_interfaces.dart';
-{{#isRoutingGoRouter}}import 'package:{{name.snakeCase()}}/routes/go_router/go_router_router.dart';{{/isRoutingGoRouter}}
+import 'package:{{name.snakeCase()}}/cores/routes/route_interfaces.dart';
+{{#isRoutingGoRouter}}import 'package:{{name.snakeCase()}}/cores/routes/go_router/go_router_router.dart';{{/isRoutingGoRouter}}
 
 /// Class to initialize all config by calling [Initializer.init()]
 /// Feel free to add another config initialization method

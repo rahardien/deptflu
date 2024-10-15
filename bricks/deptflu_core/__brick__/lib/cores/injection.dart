@@ -1,8 +1,10 @@
 import 'package:get_it/get_it.dart';
-import 'package:{{name.snakeCase()}}/cores/services/secure_storage_service.dart';
-import 'package:{{name.snakeCase()}}/cores/services/shared_pref_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:{{name.snakeCase()}}/cores/services/secure_storage_service.dart';
+import 'package:{{name.snakeCase()}}/cores/services/shared_pref_service.dart';
+import 'package:{{name.snakeCase()}}/features/login/login_module.dart';
+import 'package:{{name.snakeCase()}}/features/main/main_module.dart';
 
 /// Global instance to retrieve and inject depencencies accross the app
 /// [sl] stands for Service Locator, which most likely suit the mechanism than dependency injection
@@ -28,5 +30,7 @@ abstract class Injection {
 
   static Future<void> loadModules() async {
     /// Feel free to add another module
+    MainModule.init();
+    LoginModule.init();
   }
 }

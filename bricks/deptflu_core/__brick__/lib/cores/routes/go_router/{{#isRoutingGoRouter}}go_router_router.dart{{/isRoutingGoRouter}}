@@ -1,11 +1,11 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:{{name.snakeCase()}}/cores/routes/route_interfaces.dart';
 import 'package:{{name.snakeCase()}}/cores/routes/routes.dart';
 import 'package:{{name.snakeCase()}}/cores/services/secure_storage_service.dart';
-import 'package:{{name.snakeCase()}}/cores/presentation/splash_page.dart';
+import 'package:{{name.snakeCase()}}/cores/presentation/pages/splash_page.dart';
 import 'package:{{name.snakeCase()}}/features/login/presentation/pages/login_page.dart';
-import 'package:{{name.snakeCase()}}/cores/presentation/main/main_page.dart';
+import 'package:{{name.snakeCase()}}/features/main/presentation/pages/main_page.dart';
 
 class GorouterRouter implements RouterInterface {
   static String _initialRoute = "/${Routes.initial}";
@@ -47,39 +47,56 @@ class GorouterRouter implements RouterInterface {
 
               return null;
             },
+            builder: (_, state, child) => child,
             routes: [
               ShellRoute(
                 navigatorKey: _mainNavigatorKey,
-                builder: (_, state, child) {
-                  return MainPage(child: child);
-                },
+                pageBuilder: (_, state, child) => NoTransitionPage(
+                  child: MainPage(child: child),
+                ),
                 routes: [
                   GoRoute(
                     name: Routes.home,
                     path: "/${Routes.home}",
-                    builder: (ctx, state) => const Center(
-                      child: Text("Home"),
+                    pageBuilder: (ctx, state) => const NoTransitionPage(
+                      child: Scaffold(
+                        body: Center(
+                          child: Text("Home"),
+                        ),
+                      ),
                     ),
                   ),
                   GoRoute(
                     name: Routes.history,
                     path: "/${Routes.history}",
-                    builder: (ctx, state) => const Center(
-                      child: Text("History"),
+                    pageBuilder: (ctx, state) => const NoTransitionPage(
+                      child: Scaffold(
+                        body: Center(
+                          child: Text("History"),
+                        ),
+                      ),
                     ),
                   ),
                   GoRoute(
                     name: Routes.notification,
                     path: "/${Routes.notification}",
-                    builder: (ctx, state) => const Center(
-                      child: Text("Notification"),
+                    pageBuilder: (ctx, state) => const NoTransitionPage(
+                      child: Scaffold(
+                        body: Center(
+                          child: Text("Notification"),
+                        ),
+                      ),
                     ),
                   ),
                   GoRoute(
                     name: Routes.profile,
                     path: "/${Routes.profile}",
-                    builder: (ctx, state) => const Center(
-                      child: Text("Profile"),
+                    pageBuilder: (ctx, state) => const NoTransitionPage(
+                      child: Scaffold(
+                        body: Center(
+                          child: Text("Profile"),
+                        ),
+                      ),
                     ),
                   ),
                 ],

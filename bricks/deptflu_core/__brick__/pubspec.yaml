@@ -50,6 +50,7 @@ dependencies:
   json_annotation: ^4.9.0 # Annotation to turn JSON into data object
   shared_preferences: ^2.3.2 # Local storage to storing local config data
   flutter_secure_storage: ^9.2.2 # Secure local storage
+  logger: ^2.4.0 # Logger
 
   flutter_localizations:
     sdk: flutter

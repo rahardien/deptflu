@@ -2,15 +2,15 @@ import 'package:mason/mason.dart';
 
 void run(HookContext context) {
   final immutable = context.vars['immutable'];
-  final type = context.vars['type'];
+  final stateManagement = context.vars['state_management'];
   final validation = context.vars['validation'];
   final routing = context.vars['routing'];
 
   final isUsingEquatable = immutable == 'equatable';
   final isUsingFreezed = immutable == 'freezed';
 
-  final isUsingBloc = type == 'bloc';
-  final isUsingCubit = type == 'cubit';
+  final isUsingBloc = stateManagement == 'bloc';
+  final isUsingCubit = stateManagement == 'cubit';
 
   final isValidationNone = validation == 'none';
   final isValidationFormz = validation == 'formz';
