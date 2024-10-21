@@ -8,7 +8,7 @@ description: Core Flutter template with necessary dependencies and config for De
 # The following defines the version and build number for your brick.
 # A version number is three numbers separated by dots, like 1.2.34
 # followed by an optional build number (separated by a +).
-version: 1.1.0
+version: 0.1.2.0
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
@@ -38,7 +38,7 @@ vars:
     prompt: What is your project description?
   org:
     type: string
-    description: Project organization, used as application id
+    description: Project organization, used as application_id along with app name
     default: com.deptechdigital
     prompt: What is your project organization?
   state_management:
@@ -48,7 +48,6 @@ vars:
     prompt: Choose your preferrable state management
     values:
       - bloc
-      - cubit
   immutable:
     type: enum
     description: Immutable package to ensure object Immutability
@@ -60,16 +59,15 @@ vars:
   routing:
     type: enum
     description: Routing package to handle navigation
-    default: default
+    default: go_router
     prompt: Choose your preferrable routing package
     values:
-      - default
       - go_router
-  validation:
-    type: enum
-    description: Validation package to validate user's input, usually for Form
-    prompt: Choose your preferrable validation package
-    default: none
-    values:
-      - none
-      - formz
+  # validation:
+  #   type: enum
+  #   description: Validation package to validate user's input, usually for Form
+  #   prompt: Choose your preferrable validation package
+  #   default: none
+  #   values:
+  #     - none
+  #     - formz

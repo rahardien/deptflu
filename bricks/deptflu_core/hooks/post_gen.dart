@@ -30,6 +30,6 @@ void run(HookContext context) async {
   );
   generateProgress.complete();
 
-  await Process.run('flutter', ['pub', 'get'], runInShell: true);
-  getPackagesProgress.complete();
+  // await Process.run('flutter', ['pub', 'get'], runInShell: true);
+  // getPackagesProgress.complete();
 }
