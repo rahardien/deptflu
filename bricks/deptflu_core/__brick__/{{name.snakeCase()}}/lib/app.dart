@@ -38,7 +38,7 @@ class _{{name.pascalCase()}}AppState extends State<{{name.pascalCase()}}App> {
         ),
       ],
       child: MaterialApp.router(
-        title: "Superapp",
+        title: "{{name.titleCase()}}",
         debugShowCheckedModeBanner: false,
         theme: AppTheme.defaultTheme,
         locale: _locale ?? const Locale('id'),

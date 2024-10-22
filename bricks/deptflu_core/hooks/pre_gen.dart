@@ -14,13 +14,12 @@ void run(HookContext context) {
 
   final isUsingBloc = stateManagement == 'bloc';
 
-  context.vars['isUsingEquatable'] = isUsingEquatable;
-  context.vars['isUsingFreezed'] = isUsingFreezed;
+  context.vars['using_equatable'] = isUsingEquatable;
+  context.vars['using_freezed'] = isUsingFreezed;
 
-  context.vars['isUsingBloc'] = isUsingBloc;
-  context.vars['isUsingBlocOrCubit'] = isUsingBloc;
+  context.vars['using_bloc'] = isUsingBloc;
 
-  context.vars['orgName'] = orgName;
-  context.vars['orgDomain'] = orgDomain;
+  context.vars['org_name'] = orgName;
+  context.vars['org_domain'] = orgDomain;
   context.vars['app_id'] = HookUtils.getAppId(org: org, name: name);
 }

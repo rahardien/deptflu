@@ -1,7 +1,7 @@
-import 'package:equatable/equatable.dart';
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
 import 'package:{{name.snakeCase()}}/cores/services/api/response_parser.dart';
 
-class BaseResponse<T> extends Equatable {
+class BaseResponse<T> {{#using_equatable}} extends Equatable  {{/using_equatable}} {
   final int? statusCode;
   final String? message;
   final Map<String, dynamic>? errors;
@@ -23,8 +23,15 @@ class BaseResponse<T> extends Equatable {
             : ResponseParser<T>().fromJson(json['data']),
       );
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => {
+    'status_code': statusCode,
+    'message': message,
+    'errors': errors,
+    'data': ResponseParser<T>().toJson(data as T),
+  };
 
+  {{#using_equatable}}
   @override
   List<Object?> get props => [data, statusCode, message, errors];
+  {{/using_equatable}}
 }

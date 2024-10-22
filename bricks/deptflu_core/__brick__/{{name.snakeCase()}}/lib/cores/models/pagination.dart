@@ -1,6 +1,6 @@
-import 'package:equatable/equatable.dart';
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
 
-class Pagination extends Equatable {
+class Pagination {{#using_equatable}} extends Equatable  {{/using_equatable}} {
   final int? currentPage;
   final int? from;
   final int? lastPage;
@@ -47,6 +47,7 @@ class Pagination extends Equatable {
         'total_rows': totalRows,
       };
 
+  {{#using_equatable}}
   @override
   List<Object?> get props => [
         currentPage,
@@ -59,4 +60,5 @@ class Pagination extends Equatable {
         totalPage,
         totalRows
       ];
+  {{/using_equatable}}
 }

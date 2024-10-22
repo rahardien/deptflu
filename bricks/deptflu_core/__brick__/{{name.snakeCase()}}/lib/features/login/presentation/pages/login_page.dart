@@ -4,7 +4,6 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{name.snakeCase()}}/common/presentation/bloc/auth_cubit.dart';
-import 'package:{{name.snakeCase()}}/common/presentation/bloc/auth_state.dart';
 import 'package:{{name.snakeCase()}}/cores/constants/auth_constants.dart';
 import 'package:{{name.snakeCase()}}/cores/routes/app_navigation.dart';
 import 'package:{{name.snakeCase()}}/cores/routes/routes.dart';
@@ -47,10 +46,21 @@ class _LoginLayout extends StatelessWidget {
         ),
         BlocListener<LoginBloc, LoginState>(
           listener: (_, state) {
+            {{#using_equatable}}
             if (state is LoginStateSuccess) {
               log("Success login. Redirecting...");
               context.read<AuthCubit>().authenticate(accessToken: state.token);
             }
+            {{/using_equatable}}
+            {{#using_freezed}}
+            state.maybeWhen(
+              success: (token) {
+                log("Success login. Redirecting...");
+                context.read<AuthCubit>().authenticate(accessToken: token);
+              },
+              orElse: () {},
+            );
+            {{/using_freezed}}
           },
         ),
       ],
@@ -93,13 +103,24 @@ class _LoginLayout extends StatelessWidget {
                   BlocBuilder<LoginBloc, LoginState>(
                     builder: (_, state) {
                       return FilledButton(
+                         // ignore: prefer_const_literals_to_create_immutables
+                        {{#using_equatable}}
                         onPressed: state is LoginStateLoading
                             ? null
-                            : () async {
-                                context
-                                    .read<LoginBloc>()
-                                    .add(LoginWithEmailAndPasswordEvent());
+                            : ()  {
+                                context.read<LoginBloc>().add(LoginWithEmailAndPasswordEvent());
                               },
+                        {{/using_equatable}}
+                         // ignore: prefer_const_literals_to_create_immutables
+                         {{#using_freezed}}
+                        onPressed: state.maybeWhen(
+                          loading: () => null,
+                          orElse: () {
+                            context.read<LoginBloc>().add(const LoginEvent.loginWithEmailAndPassword());
+                            return null;
+                          },
+                        ),
+                        {{/using_freezed}}
                         child: const Text("Login"),
                       );
                     },

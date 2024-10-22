@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:superapp/cores/ui/app_colors.dart';
+import 'package:{{name.snakeCase()}}/cores/ui/app_colors.dart';
 
 abstract class AppTheme {
   static ThemeData defaultTheme = ThemeData(

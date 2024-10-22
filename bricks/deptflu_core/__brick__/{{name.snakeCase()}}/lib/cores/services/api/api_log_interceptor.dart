@@ -29,7 +29,6 @@ class ApiLogInterceptor extends InterceptorsWrapper {
     final url = response.requestOptions.uri.toString();
     final method = response.requestOptions.method.toUpperCase();
     final code = response.statusCode ?? -1;
-    final data = response.data;
 
     /// Alter incoming response from API to match our Response schema
     /// In this example, we use API from [https://reqres.in/], so we need to alter the response because it has different Response schema

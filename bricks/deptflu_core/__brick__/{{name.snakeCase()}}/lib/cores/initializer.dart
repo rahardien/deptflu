@@ -1,4 +1,4 @@
-import 'package:superapp/cores/injection.dart';
+import 'package:{{name.snakeCase()}}/cores/injection.dart';
 
 /// Class to initialize all config by calling [Initializer.init()]
 /// Feel free to add another config initialization method

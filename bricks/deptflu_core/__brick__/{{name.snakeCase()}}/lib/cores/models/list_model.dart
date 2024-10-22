@@ -1,8 +1,8 @@
-import 'package:equatable/equatable.dart';
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
 import 'package:{{name.snakeCase()}}/cores/services/api/response_parser.dart';
 import 'pagination.dart';
 
-class ListModel<T> extends Equatable {
+class ListModel<T> {{#using_equatable}} extends Equatable  {{/using_equatable}} {
   final List<T>? list;
   final Pagination? pagination;
 
@@ -28,6 +28,8 @@ class ListModel<T> extends Equatable {
         'pagination': pagination?.toJson(),
       };
 
+  {{#using_equatable}}
   @override
   List<Object?> get props => [list, pagination];
+  {{/using_equatable}}
 }

@@ -45,3 +45,6 @@ app.*.map.json
 # Generated code for development only
 **/*.g.dart
 **/*.freezed.dart
+
+.mason/
+mason-lock.json

@@ -1,6 +1,6 @@
-import 'package:equatable/equatable.dart';
-import 'package:{{name.snakeCase()}}/cores/constants/auth_constants.dart';
+part of 'auth_cubit.dart';
 
+{{#using_equatable}}
 class AuthState extends Equatable {
   final AuthStatus status;
   final String? accessToken;
@@ -25,3 +25,15 @@ class AuthState extends Equatable {
         accessToken: accessToken ?? this.accessToken,
       );
 }
+{{/using_equatable}}
+
+{{#using_freezed}}
+@freezed
+class AuthState with _$AuthState {
+  const factory AuthState({
+    @Default(AuthStatus.initial) AuthStatus status,
+    String? accessToken,
+    String? message,
+  }) = _AuthState;
+}
+{{/using_freezed}}

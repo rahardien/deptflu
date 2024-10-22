@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:{{name.snakeCase()}}/common/presentation/bloc/auth_cubit.dart';
-import 'package:{{name.snakeCase()}}/common/presentation/bloc/auth_state.dart';
 import 'package:{{name.snakeCase()}}/cores/constants/auth_constants.dart';
 import 'package:{{name.snakeCase()}}/cores/routes/app_navigation.dart';
 import 'package:{{name.snakeCase()}}/cores/routes/routes.dart';
@@ -46,6 +45,15 @@ class _MainLayout extends StatelessWidget {
             }
           },
         ),
+        BlocListener<MainBloc, MainState>(
+          listenWhen: (prev, curr) =>
+              prev.activeNavIndex != curr.activeNavIndex,
+          listener: (_, state) {
+            context.go(
+              context.read<MainBloc>().navItems[state.activeNavIndex].path,
+            );
+          },
+        ),
       ],
       child: Scaffold(
         body: child,
@@ -79,8 +87,8 @@ class _MainLayout extends StatelessWidget {
               showSelectedLabels: true,
               showUnselectedLabels: false,
               onTap: (index) {
-                context.go(context.read<MainBloc>().navItems[index].path);
-                context.read<MainBloc>().add(TapBottomNavMenuEvent(index));
+                {{#using_equatable}}context.read<MainBloc>().add(TapBottomNavMenuEvent(index));{{/using_equatable}}
+                {{#using_freezed}}context.read<MainBloc>().add(MainEvent.tapBottomNavMenu(index: index));{{/using_freezed}}
               },
             );
           },

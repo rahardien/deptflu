@@ -1,11 +1,13 @@
 import 'package:{{name.snakeCase()}}/cores/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:equatable/equatable.dart';
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
+{{#using_freezed}}import 'package:freezed_annotation/freezed_annotation.dart';{{/using_freezed}}
 import '../../domain/usecases/get_main_uc.dart';
 
 part 'main_event.dart';
 part 'main_state.dart';
+{{#using_freezed}}part 'main_bloc.freezed.dart';{{/using_freezed}}
 
 class BottomNavigationItem {
   final String label;
@@ -51,9 +53,22 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     ),
   ];
 
-  MainBloc({required this.getMainUc}) : super(const MainState()) {
+  MainBloc({required this.getMainUc}) : super(
+    {{#using_equatable}}const MainState(){{/using_equatable}}
+    {{#using_freezed}}MainState(){{/using_freezed}}
+  ) {
+    {{#using_equatable}}
     on<TapBottomNavMenuEvent>((event, emit) {
       emit(state.copyWith(activeNavIndex: event.index));
     });
+    {{/using_equatable}}
+
+    {{#using_freezed}}
+    on<MainEvent>((event, emit){
+      event.map(
+        tapBottomNavMenu: (e) => emit(state.copyWith(activeNavIndex: e.index),),
+      );
+    });
+    {{/using_freezed}}
   }
 }

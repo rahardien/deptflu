@@ -1,6 +1,5 @@
 import '../../domain/entities/main_entity.dart';
 
-
 class MainModel extends MainEntity {
   const MainModel({
     super.id,
@@ -14,5 +13,3 @@ class MainModel extends MainEntity {
         'id': id,
       };
 }
-
-

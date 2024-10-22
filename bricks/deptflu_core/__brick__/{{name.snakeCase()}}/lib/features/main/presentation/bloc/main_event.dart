@@ -1,5 +1,6 @@
 part of 'main_bloc.dart';
 
+{{#using_equatable}}
 abstract class MainEvent extends Equatable {
   const MainEvent();
 
@@ -15,3 +16,12 @@ class TapBottomNavMenuEvent extends MainEvent {
   @override
   List<Object> get props => [index];
 }
+
+{{/using_equatable}}
+
+{{#using_freezed}}
+@freezed
+class MainEvent with _$MainEvent {
+  const factory MainEvent.tapBottomNavMenu({required int index}) = _TapBottomNavMenu;
+}
+{{/using_freezed}}

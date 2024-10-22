@@ -1,5 +1,6 @@
 part of 'login_bloc.dart';
 
+{{#using_equatable}}
 abstract class LoginState extends Equatable {
   const LoginState();
 
@@ -37,3 +38,18 @@ class LoginStateError extends LoginState {
         failure
       ];
 }
+{{/using_equatable}}
+
+{{#using_freezed}}
+@freezed
+class LoginState with _$LoginState {
+  const factory LoginState.init() = _Init;
+  const factory LoginState.loading() = _Loading;
+  const factory LoginState.success({required String token}) = _Success;
+  const factory LoginState.error({
+    int? code,
+    String? message,
+    required AppFailure failure,
+  }) = _Error;
+}
+{{/using_freezed}}

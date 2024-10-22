@@ -1,5 +1,6 @@
 part of 'main_bloc.dart';
 
+{{#using_equatable}}
 class MainState extends Equatable {
   final int activeNavIndex;
 
@@ -19,3 +20,13 @@ class MainState extends Equatable {
         activeNavIndex: activeNavIndex ?? this.activeNavIndex,
       );
 }
+{{/using_equatable}}
+
+{{#using_freezed}}
+@freezed
+class MainState with _$MainState {
+  const factory MainState({
+    @Default(0) int activeNavIndex,
+  }) = _MainState;
+}
+{{/using_freezed}}

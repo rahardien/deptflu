@@ -1,7 +1,7 @@
-import 'package:equatable/equatable.dart';
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
 import 'list_model.dart';
 
-class BaseListResponse<T> extends Equatable {
+class BaseListResponse<T> {{#using_equatable}} extends Equatable  {{/using_equatable}} {
   final int? statusCode;
   final String? message;
   final Map<String, dynamic>? errors;
@@ -29,6 +29,7 @@ class BaseListResponse<T> extends Equatable {
         'data': data?.toJson(),
       };
 
+  {{#using_equatable}}
   @override
   List<Object?> get props => [
         statusCode,
@@ -36,4 +37,5 @@ class BaseListResponse<T> extends Equatable {
         data,
         errors,
       ];
+  {{/using_equatable}}
 }
