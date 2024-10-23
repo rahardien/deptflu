@@ -2,17 +2,15 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 void run(HookContext context) async {
-  final name = context.vars['name'] as String;
-  final workingDir = "${name.snakeCase}";
-
   final getPackagesProgress = context.logger.progress("Getting packages...");
-  await Process.run(
-    'flutter',
-    ['pub', 'get'],
-    runInShell: true,
-    workingDirectory: workingDir,
-  );
+  await Process.run('flutter', ['pub', 'get'], runInShell: true);
   getPackagesProgress.complete();
+
+  final generateAssetsProggress = context.logger.progress(
+    "Generating assets...",
+  );
+  await Process.run('fluttergen', [], runInShell: true);
+  generateAssetsProggress.complete();
 
   final generateLauncherIconProgress = context.logger.progress(
     "Generating Launcher Icon",
@@ -21,7 +19,6 @@ void run(HookContext context) async {
     'dart',
     ['run', 'flutter_launcher_icons'],
     runInShell: true,
-    workingDirectory: workingDir,
   );
   generateLauncherIconProgress.complete();
 
@@ -30,7 +27,6 @@ void run(HookContext context) async {
     'dart',
     ['run', 'build_runner', 'build', '--delete-conflicting-outputs'],
     runInShell: true,
-    workingDirectory: workingDir,
   );
   generateProgress.complete();
 }
