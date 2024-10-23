@@ -6,10 +6,10 @@ List of bricks to build Boilerplate code for Deptech's Flutter projects
 
 | Brick name           | Version               | Description                                         |
 |----------------------|-----------------------|-----------------------------------------------------|
-| [deptflu_core](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_core)         | 1.1.0                 | Core Flutter template with necessary dependencies and config                 |
+| [deptflu_core](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_core)         | 1.2.0                 | Core Flutter template with necessary dependencies and config                 |
 | [deptflu_feat](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_feat)         | 0.2.1                 | Generate feature's boilerplate code                 |
 | [deptflu_model](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_model)        | 0.2.1                 | Generate model and entity boilerplate code                 |
-| [deptflu_bloc](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_bloc)         | 0.4.2                 | Generate BLoC/Cubit boilerplate code (event & state included)                  |
+| [deptflu_bloc](https://github.com/rahardien/deptflu/tree/master/bricks/deptflu_bloc)         | 0.4.3                 | Generate BLoC/Cubit boilerplate code (event & state included)                  |
 
 ## Getting Started 🚀
 
