@@ -1,5 +1,5 @@
-{{#using_bloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/using_bloc}}
-{{#using_cubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/using_cubit}}
+{{#using_bloc}}
+part of '{{name.snakeCase()}}_bloc.dart';
 
 {{#using_freezed}}
 @freezed
@@ -46,3 +46,4 @@ class Remove{{name.pascalCase()}}ByIdEvent extends {{name.pascalCase()}}Event {
   List<Object> get props => [id];
 }
 {{/using_equatable}}
+{{#using_cubit}}
