@@ -1,6 +1,6 @@
-{{#using_bloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/using_bloc}}
-{{#using_cubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/using_cubit}}
+part of '{{name.snakeCase()}}_{{type}}.dart';
 
+{{#using_bloc}}
 {{#using_freezed}}
 @freezed
 class {{name.pascalCase()}}Event with _${{name.pascalCase()}}Event {
@@ -46,3 +46,4 @@ class Remove{{name.pascalCase()}}ByIdEvent extends {{name.pascalCase()}}Event {
   List<Object> get props => [id];
 }
 {{/using_equatable}}
+{{/using_bloc}}
