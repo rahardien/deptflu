@@ -6,7 +6,7 @@ import '../../../../../cores/errors/app_failure.dart';
 
 part '{{name.snakeCase()}}_event.dart';
 part '{{name.snakeCase()}}_state.dart';
-{{#using_freezed}}part '{{name.snakeCase()}}_bloc.freezed.dart';{{/using_freezed}}
+{{#using_freezed}}part '{{name.snakeCase()}}_{{type}}.freezed.dart';{{/using_freezed}}
 
 {{#using_bloc}}
 class {{name.pascalCase()}}Bloc extends Bloc<{{name.pascalCase()}}Event, {{name.pascalCase()}}State> {
