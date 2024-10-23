@@ -1,14 +1,14 @@
 part of '{{name.snakeCase()}}_validation_cubit.dart';
 
-{{#isUsingEquatable}}
+{{#using_equatable}}
 class {{name.pascalCase()}}ValidationState extends Equatable {
-  final StringInput name; // Change as you need 
-  final StringInput address;  // Change as you need
+  final NormalStringInput name; // Change as you need 
+  final NormalStringInput address;  // Change as you need
   final bool isFormValid;
 
   const {{name.pascalCase()}}ValidationState({
-    this.name = const StringInput.pure(),
-    this.address = const StringInput.pure(),
+    this.name = const NormalStringInput.pure(),
+    this.address = const NormalStringInput.pure(),
     this.isFormValid = false,
   });
 
@@ -21,8 +21,8 @@ class {{name.pascalCase()}}ValidationState extends Equatable {
 
   {{name.pascalCase()}}ValidationState copyWith({
     bool? isFormValid,
-    StringInput? name,
-    StringInput? address,
+    NormalStringInput? name,
+    NormalStringInput? address,
   }) => 
   {{name.pascalCase()}}ValidationState(
     isFormValid: isFormValid ?? this.isFormValid,
@@ -30,15 +30,15 @@ class {{name.pascalCase()}}ValidationState extends Equatable {
     address: address ?? this.address,
   );
 }
-{{/isUsingEquatable}}
+{{/using_equatable}}
 
-{{#isUsingFreezed}}
+{{#using_freezed}}
 @freezed
 class {{name.pascalCase()}}ValidationState with _${{name.pascalCase()}}ValidationState {
   const factory {{name.pascalCase()}}ValidationState({
-    @Default(StringInput.pure()) StringInput name,    // Change as you need
-    @Default(StringInput.pure()) StringInput address, // Change as you need
+    @Default(NormalStringInput.pure()) NormalStringInput name,    // Change as you need
+    @Default(NormalStringInput.pure()) NormalStringInput address, // Change as you need
     @Default(false) bool isFormValid,
   }) = _{{name.pascalCase()}}ValidationState;
 }
-{{/isUsingFreezed}}
+{{/using_freezed}}

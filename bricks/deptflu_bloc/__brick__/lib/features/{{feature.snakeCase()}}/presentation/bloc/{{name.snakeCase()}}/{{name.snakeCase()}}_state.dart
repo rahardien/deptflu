@@ -1,10 +1,10 @@
-{{#isUsingBloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/isUsingBloc}}
-{{#isUsingCubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/isUsingCubit}}
+{{#using_bloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/using_bloc}}
+{{#using_cubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/using_cubit}}
 
-{{#isUsingFreezed}}
-{{^pagination}}
+{{#using_freezed}}
 @freezed
 class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
+  {{^pagination}}
   factory {{name.pascalCase()}}State.init() = _{{name.pascalCase()}}StateInit;
   factory {{name.pascalCase()}}State.loading() = _{{name.pascalCase()}}StateLoading;
   factory {{name.pascalCase()}}State.success(dynamic data) = _{{name.pascalCase()}}StateSuccess; // Change the data type as you require
@@ -13,13 +13,11 @@ class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
     int? code,
     String? message,
   }) = _{{name.pascalCase()}}StateError;
-}
-{{/pagination}}
-{{#pagination}}
-@freezed
-class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
+  {{/pagination}}
+
+  {{#pagination}}
   const factory {{name.pascalCase()}}State({
-    @Default(BaseStatus.init) BaseStatus status,
+    @Default(BaseStatus.initial) BaseStatus status,
     @Default(1) int page,
     @Default(10) int limit,
     @Default(false) bool isLoadMore,
@@ -28,11 +26,11 @@ class {{name.pascalCase()}}State with _${{name.pascalCase()}}State {
     @Default("") String errorMessage,
     @Default(null) AppFailure? failure,
   }) = _{{name.pascalCase()}}State;
+  {{/pagination}}
 }
-{{/pagination}}
-{{/isUsingFreezed}}
+{{/using_freezed}}
 
-{{#isUsingEquatable}}
+{{#using_equatable}}
 {{^pagination}}
 abstract class {{name.pascalCase()}}State extends Equatable {
   const {{name.pascalCase()}}State();
@@ -79,7 +77,7 @@ class {{name.pascalCase()}}State extends Equatable {
   final AppFailure? failure;
 
   const {{name.pascalCase()}}State({
-    this.status = BaseStatus.init,
+    this.status = BaseStatus.initial,
     this.page = 1,
     this.limit = 10,
     this.isLoadMore = false,
@@ -125,4 +123,4 @@ class {{name.pascalCase()}}State extends Equatable {
       );
 }
 {{/pagination}}
-{{/isUsingEquatable}}
+{{/using_equatable}}

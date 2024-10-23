@@ -20,3 +20,7 @@
 ## 0.4.2
 
 - Adding option to create Validation State class with freezed
+
+## 0.4.3
+
+- Fixing package error when creating brick

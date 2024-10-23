@@ -1,15 +1,15 @@
-{{#isUsingBloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/isUsingBloc}}
-{{#isUsingCubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/isUsingCubit}}
+{{#using_bloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/using_bloc}}
+{{#using_cubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/using_cubit}}
 
-{{#isUsingFreezed}}
+{{#using_freezed}}
 @freezed
 class {{name.pascalCase()}}Event with _${{name.pascalCase()}}Event {
   factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}sEvent() = _Get{{name.pascalCase()}}sEvent;
   factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}ByIdEvent(String id) = _Get{{name.pascalCase()}}ByIdEvent;
 }
-{{/isUsingFreezed}}
+{{/using_freezed}}
 
-{{#isUsingEquatable}}
+{{#using_equatable}}
 abstract class {{name.pascalCase()}}Event extends Equatable {
   const {{name.pascalCase()}}Event();
 
@@ -45,4 +45,4 @@ class Remove{{name.pascalCase()}}ByIdEvent extends {{name.pascalCase()}}Event {
   @override
   List<Object> get props => [id];
 }
-{{/isUsingEquatable}}
+{{/using_equatable}}

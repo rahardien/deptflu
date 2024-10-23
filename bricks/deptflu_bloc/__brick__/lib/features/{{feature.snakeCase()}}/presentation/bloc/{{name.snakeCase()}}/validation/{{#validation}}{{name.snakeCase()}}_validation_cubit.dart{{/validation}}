@@ -1,18 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-{{#isUsingEquatable}}import 'package:equatable/equatable.dart';{{/isUsingEquatable}}
-{{#isUsingFreezed}}import 'package:freezed_annotation/freezed_annotation.dart';{{/isUsingFreezed}}
-
-import '../../../../../../cores/utils/validation/string_input.dart';
+import '../../../../../../cores/utils/input_types/normal_string_input.dart';
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
+{{#using_freezed}}import 'package:freezed_annotation/freezed_annotation.dart';{{/using_freezed}}
 
 part '{{name.snakeCase()}}_validation_state.dart';
-part '{{name.snakeCase()}}_validation_cubit.freezed.dart';
+{{#using_freezed}}part '{{name.snakeCase()}}_validation_cubit.freezed.dart';{{/using_freezed}}
 
 class {{name.pascalCase()}}ValidationCubit extends Cubit<{{name.pascalCase()}}ValidationState> {
   {{name.pascalCase()}}ValidationCubit(): super(const {{name.pascalCase()}}ValidationState());
 
   void onNameChanged(String input) {
-    final name = StringInput.dirty(input);
+    final name = NormalStringInput.dirty(input);
 
     emit(
       state.copyWith(
@@ -24,7 +23,7 @@ class {{name.pascalCase()}}ValidationCubit extends Cubit<{{name.pascalCase()}}Va
   }
 
   void onAddressChanged(String input) {
-    final address = StringInput.dirty(input);
+    final address = NormalStringInput.dirty(input);
 
     emit(
       state.copyWith(

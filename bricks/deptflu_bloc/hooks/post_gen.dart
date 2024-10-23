@@ -9,10 +9,12 @@ void run(HookContext context) async {
 
     await Process.run(
       'dart',
-      ['run', 'build_runner', 'build', '--delete-conflicting-outputs'],
+      ['run', 'build_runner', 'build', '-d'],
       runInShell: true,
     );
 
     generateProgress.complete();
   }
+
+  context.logger.success("Bloc/Cubit ready to use! 🚀");
 }
