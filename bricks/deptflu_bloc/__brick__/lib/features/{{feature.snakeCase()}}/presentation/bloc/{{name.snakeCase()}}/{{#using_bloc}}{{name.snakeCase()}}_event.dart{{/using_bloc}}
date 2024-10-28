@@ -1,14 +1,13 @@
-{{#using_bloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/using_bloc}}
-{{#using_cubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/using_cubit}}
+part of '../{{name.snakeCase()}}_{{type}}.dart';
 
 {{#using_freezed}}
 @freezed
 class {{name.pascalCase()}}Event with _${{name.pascalCase()}}Event {
   factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}Event(
     {{#pagination}}
-    {String? query,
-    int page = 1,
-    int limit = 10,}
+      {@Default("") String query, 
+      @Default(1) int page, 
+      @Default(10) int limit}
     {{/pagination}}
   ) = _Get{{name.pascalCase()}}Event;
   factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}ByIdEvent(String id) = _Get{{name.pascalCase()}}ByIdEvent;
@@ -16,7 +15,7 @@ class {{name.pascalCase()}}Event with _${{name.pascalCase()}}Event {
 {{/using_freezed}}
 
 {{#using_equatable}}
-sealed class {{name.pascalCase()}}Event extends Equatable {
+abstract class {{name.pascalCase()}}Event extends Equatable {
   const {{name.pascalCase()}}Event();
 
   @override
@@ -25,27 +24,21 @@ sealed class {{name.pascalCase()}}Event extends Equatable {
 
 class Get{{name.pascalCase()}}Event extends {{name.pascalCase()}}Event {
   {{#pagination}}
-  final String? query;
+  final String query;
   final int page;
   final int limit;
   {{/pagination}}
 
   const Get{{name.pascalCase()}}Event(
     {{#pagination}}
-    {this.query,
+    {this.query = '',
     this.page = 1,
     this.limit = 10,}
     {{/pagination}}
   );
 
   @override
-  List<Object> get props => [
-    {{#pagination}}
-      [query],
-      page,
-      limit
-    {{/pagination}}
-  ];
+  List<Object> get props => [query, page, limit];
 }
 
 class Get{{name.pascalCase()}}ByIdEvent extends {{name.pascalCase()}}Event {

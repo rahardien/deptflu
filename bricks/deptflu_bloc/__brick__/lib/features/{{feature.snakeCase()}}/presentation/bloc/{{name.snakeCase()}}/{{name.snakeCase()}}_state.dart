@@ -1,5 +1,4 @@
-{{#using_bloc}}part of '{{name.snakeCase()}}_bloc.dart';{{/using_bloc}}
-{{#using_cubit}}part of '{{name.snakeCase()}}_cubit.dart';{{/using_cubit}}
+part of '{{name.snakeCase()}}_{{type}}.dart';
 
 {{#using_freezed}}
 @freezed
