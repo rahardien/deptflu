@@ -1,7 +1,5 @@
-import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/{{name.snakeCase()}}_bloc.dart';
 
 class {{name.pascalCase()}}Page extends StatelessWidget {
   const {{name.pascalCase()}}Page({super.key});
@@ -9,11 +7,7 @@ class {{name.pascalCase()}}Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => GetIt.I.get<{{name.pascalCase()}}Bloc>(),
-        ),
-      ],
+      providers: [],
       child: const _{{name.pascalCase()}}Layout(),
     );
   }

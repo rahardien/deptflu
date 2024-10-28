@@ -31,11 +31,11 @@ vars:
     description: Feature's name that will be generated
     default: Example
     prompt: What feature you want to create?
-  immutable:
-    type: enum
-    description: Immutable package to ensure model/entity's immutability
-    prompt: Choose Immutable package
-    default: equatable
-    values:
-      - equatable
-      - freezed
+  # immutable:
+  #   type: enum
+  #   description: Immutable package to ensure model/entity's immutability
+  #   prompt: Choose Immutable package
+  #   default: equatable
+  #   values:
+  #     - equatable
+  #     - freezed
