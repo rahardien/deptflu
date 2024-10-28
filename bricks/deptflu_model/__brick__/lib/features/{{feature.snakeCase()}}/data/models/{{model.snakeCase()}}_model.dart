@@ -1,6 +1,6 @@
 import '../../domain/entities/{{model.snakeCase()}}_entity.dart';
 
-{{#isUsingEquatable}}
+{{#using_equatable}}
 class {{model.pascalCase()}}Model extends {{model.pascalCase()}}Entity {
   const {{model.pascalCase()}}Model({
     super.id,
@@ -23,9 +23,9 @@ class {{model.pascalCase()}}Model extends {{model.pascalCase()}}Entity {
         'updated_at': updatedAt,
       };
 }
-{{/isUsingEquatable}}
+{{/using_equatable}}
 
-{{#isUsingFreezed}}
+{{#using_freezed}}
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '{{model.snakeCase()}}_model.freezed.dart';
@@ -51,4 +51,4 @@ class {{model.pascalCase()}}Model with _${{model.pascalCase()}}Model {
 
   factory {{model.pascalCase()}}Model.fromJson(Map<String, dynamic> json) => _${{model.pascalCase()}}ModelFromJson(json);
 }
-{{/isUsingFreezed}}
+{{/using_freezed}}

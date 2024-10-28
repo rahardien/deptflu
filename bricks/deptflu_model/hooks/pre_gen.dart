@@ -6,6 +6,6 @@ void run(HookContext context) {
   final isUsingEquatable = immutable == 'equatable';
   final isUsingFreezed = immutable == 'freezed';
 
-  context.vars['isUsingEquatable'] = isUsingEquatable;
-  context.vars['isUsingFreezed'] = isUsingFreezed;
+  context.vars['using_equatable'] = isUsingEquatable;
+  context.vars['using_freezed'] = isUsingFreezed;
 }

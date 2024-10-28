@@ -1,5 +1,5 @@
-{{#isUsingEquatable}}import 'package:equatable/equatable.dart';{{/isUsingEquatable}}
-{{#isUsingEquatable}}
+{{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
+{{#using_equatable}}
 class {{model.pascalCase()}}Entity extends Equatable {
   final String? id;
   final String? name;
@@ -18,9 +18,9 @@ class {{model.pascalCase()}}Entity extends Equatable {
         id, name, createdAt, updatedAt,
       ];
 }
-{{/isUsingEquatable}}
+{{/using_equatable}}
 
-{{#isUsingFreezed}}
+{{#using_freezed}}
 class {{model.pascalCase()}}Entity {
   final String? id;
   final String? name;
@@ -47,4 +47,4 @@ class {{model.pascalCase()}}Entity {
         updatedAt: updatedAt ?? this.updatedAt,
       );
 }
-{{/isUsingFreezed}}
+{{/using_freezed}}
