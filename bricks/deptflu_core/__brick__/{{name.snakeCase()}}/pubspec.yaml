@@ -1,5 +1,5 @@
 name: "{{name.snakeCase()}}"
-description: "{{description.snakeCase()}}"
+description: "{{description.sentenceCase()}}"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 
@@ -54,7 +54,7 @@ dependencies:
   logger: ^2.4.0 # Logger
   intl: any # Internationalization package
   collection: any # Utilities for collection object
-  formz: ^0.8.0 # Extensible form validation
+  formz: any # Extensible form validation
 
   # UI
   flutter_svg: ^2.0.10+1 # Load SVG file

@@ -24,3 +24,7 @@
 ## 0.4.3
 
 - Fixing package error when creating brick due to long path in validation
+
+## 0.4.4
+
+- Fixing error when creating brick due to long path in validation

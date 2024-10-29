@@ -14,3 +14,7 @@
 ## 0.2.1
 
 - Adding option to create immutable Entity/Model (equatable and freezed)
+
+## 0.2.2
+
+- Removing model generation, use deptflu_model instead to generate model class

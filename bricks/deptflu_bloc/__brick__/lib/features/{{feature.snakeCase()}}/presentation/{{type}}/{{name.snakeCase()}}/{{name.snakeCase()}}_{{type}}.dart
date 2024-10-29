@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../cores/errors/app_failure.dart';
 {{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
 {{#using_freezed}}import 'package:freezed_annotation/freezed_annotation.dart';{{/using_freezed}}
-{{#pagination}}import '../../../../../cores/constant/base_status.dart';{{/pagination}}
+{{#pagination}}import '../../../../../cores/models/base_status.dart';{{/pagination}}
 
 {{#using_bloc}}part '{{name.snakeCase()}}_event.dart';{{/using_bloc}}
 part '{{name.snakeCase()}}_state.dart';

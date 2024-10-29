@@ -63,11 +63,3 @@ vars:
     prompt: Choose your preferrable routing package
     values:
       - go_router
-  # validation:
-  #   type: enum
-  #   description: Validation package to validate user's input, usually for Form
-  #   prompt: Choose your preferrable validation package
-  #   default: none
-  #   values:
-  #     - none
-  #     - formz

@@ -1,4 +1,4 @@
-part of '../{{name.snakeCase()}}_{{type}}.dart';
+part of '{{name.snakeCase()}}_{{type}}.dart';
 
 {{#using_freezed}}
 @freezed
@@ -38,7 +38,11 @@ class Get{{name.pascalCase()}}Event extends {{name.pascalCase()}}Event {
   );
 
   @override
-  List<Object> get props => [query, page, limit];
+  List<Object> get props => [
+    {{#pagination}}
+    query, page, limit
+    {{/pagination}}
+  ];
 }
 
 class Get{{name.pascalCase()}}ByIdEvent extends {{name.pascalCase()}}Event {
