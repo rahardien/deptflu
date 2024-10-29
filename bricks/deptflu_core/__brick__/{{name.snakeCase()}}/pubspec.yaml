@@ -54,6 +54,7 @@ dependencies:
   logger: ^2.4.0 # Logger
   intl: any # Internationalization package
   collection: any # Utilities for collection object
+  formz: ^0.8.0 # Extensible form validation
 
   # UI
   flutter_svg: ^2.0.10+1 # Load SVG file
