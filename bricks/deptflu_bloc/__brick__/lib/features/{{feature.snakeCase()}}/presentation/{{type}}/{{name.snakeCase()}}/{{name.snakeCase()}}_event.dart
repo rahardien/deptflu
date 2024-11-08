@@ -1,15 +1,19 @@
+{{#using_bloc}}
 part of '{{name.snakeCase()}}_{{type}}.dart';
 
 {{#using_freezed}}
 @freezed
 class {{name.pascalCase()}}Event with _${{name.pascalCase()}}Event {
+  {{#pagination}}
   factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}Event(
-    {{#pagination}}
       {@Default("") String query, 
       @Default(1) int page, 
       @Default(10) int limit}
-    {{/pagination}}
   ) = _Get{{name.pascalCase()}}Event;
+  {{/pagination}}
+  {{^pagination}}
+  factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}Event() = _Get{{name.pascalCase()}}Event;
+  {{/pagination}}
   factory {{name.pascalCase()}}Event.get{{name.pascalCase()}}ByIdEvent(String id) = _Get{{name.pascalCase()}}ByIdEvent;
 }
 {{/using_freezed}}
@@ -54,3 +58,4 @@ class Get{{name.pascalCase()}}ByIdEvent extends {{name.pascalCase()}}Event {
   List<Object> get props => [id];
 }
 {{/using_equatable}}
+{{/using_bloc}}

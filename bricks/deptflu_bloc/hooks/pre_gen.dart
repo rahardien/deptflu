@@ -1,6 +1,6 @@
 import 'package:mason/mason.dart';
 
-void run(HookContext context) {
+void run(HookContext context) async {
   final immutable = context.vars['immutable'] as String;
   final type = context.vars['type'] as String;
 
