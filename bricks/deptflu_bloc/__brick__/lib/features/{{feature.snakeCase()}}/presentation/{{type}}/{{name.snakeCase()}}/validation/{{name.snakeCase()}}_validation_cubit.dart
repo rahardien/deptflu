@@ -1,7 +1,10 @@
+// 📦 Packages import
 {{#using_equatable}}import 'package:equatable/equatable.dart';{{/using_equatable}}
 {{#using_freezed}}import 'package:freezed_annotation/freezed_annotation.dart';{{/using_freezed}}
 import 'package:formz/formz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project import
 import '../../../../../../cores/utils/input_types/normal_string_input.dart';
 
 part '{{name.snakeCase()}}_validation_state.dart';

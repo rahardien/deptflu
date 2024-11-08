@@ -28,3 +28,7 @@
 ## 0.4.4
 
 - Fixing error when creating brick due to long path in validation
+
+## 0.4.5
+
+- Fixing error when creating brick due to long path in validation
