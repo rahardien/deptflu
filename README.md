@@ -80,3 +80,5 @@ Happy coding! 🥳🎉
 [2]: https://docs.brickhub.dev
 [3]: https://verygood.ventures/blog/code-generation-with-mason
 [6]: https://youtu.be/o8B1EfcUisw
+
+> Developed by: [homindolentrahar](https://github.com/homindolentrahar)
